@@ -46,7 +46,7 @@ public class ValidationItemControllerV1 {
         Map<String, String> errors = new HashMap<>();
 
         //검증 로직
-        if (StringUtils.hasText(item.getItemName())){
+        if (!StringUtils.hasText(item.getItemName())){
             errors.put("itemName", "상품 이름은 필수입니다.");
         }
         if (item.getPrice() == null || item.getPrice() < 1000 || item.getPrice() > 1000000){
