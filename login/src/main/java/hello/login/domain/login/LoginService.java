@@ -19,6 +19,9 @@ public class LoginService {
      */
 
     public Member login(String loginId, String password){
+        //Optional<Member> byLoginId = memberRepository.findByLoginId(login);
+        //byLoginId.filter(m -> m.getPassword().equals(password))
+        //          .orElse(null); 의 축약
         return memberRepository.findByLoginId(loginId)
                 .filter(m -> m.getPassword().equals(password))
                 .orElse(null);
