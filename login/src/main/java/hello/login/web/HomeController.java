@@ -24,7 +24,7 @@ public class HomeController {
         return "home";
     }
 
-//    @GetMapping("/")
+    //    @GetMapping("/")
     public String homeLogin(@CookieValue(name = "memberId", required = false) Long memberId, Model model) {
         if (memberId == null) {
             return "home";
@@ -44,7 +44,7 @@ public class HomeController {
     public String homeLoginV2(HttpServletRequest request, Model model) {
 
         //세션 관리자에 저장된 회원 정보 조회
-        Member member = (Member)sessionManager.getSession(request);
+        Member member = (Member) sessionManager.getSession(request);
         if (member == null) {
             return "home";
         }
@@ -53,3 +53,4 @@ public class HomeController {
         model.addAttribute("member", member);
         return "loginHome";
     }
+}
