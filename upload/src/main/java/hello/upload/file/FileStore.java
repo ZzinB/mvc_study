@@ -36,6 +36,7 @@ public class FileStore {
             return null;
         }
         String originalFilename = multipartFile.getOriginalFilename();
+        //서버에 저장하는 파일명
         String storeFileName = createStoreFileName(originalFilename);
         multipartFile.transferTo(new File(getFullPath(storeFileName)));
         return new UploadFile(originalFilename, storeFileName);
@@ -47,6 +48,7 @@ public class FileStore {
         return uuid + "." + ext;
     }
 
+    // 확장자 꺼내기
     private String extractExt(String originalFilename) {
         int pos = originalFilename.lastIndexOf(".");
         return originalFilename.substring(pos + 1);
